@@ -12,7 +12,7 @@ wss.on('connection', (ws) => {
   clients.add(ws);
   ws.on('message', (message) => {
     for (const client of clients) {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
+      if (client !== ws && client.readyState === ws.OPEN) { // Updated line
         client.send(message);
       }
     }
