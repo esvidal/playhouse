@@ -3,6 +3,7 @@ const sendButton = document.getElementById('sendButton');
 const messages = document.getElementById('messages');
 
 const ws = new WebSocket('ws://localhost:3000');
+ws.binaryType = 'text'; // Specify Websocket should use the 'text' date type.
 
 ws.addEventListener('open', () => {
   console.log('Connected to WebSocket server');
