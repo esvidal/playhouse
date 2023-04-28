@@ -11,9 +11,10 @@ const clients = new Set();
 wss.on('connection', (ws) => {
   clients.add(ws);
   ws.on('message', (message) => {
+    const messageString = message.toString(); // Convert message to string
     for (const client of clients) {
       if (client !== ws && client.readyState === ws.OPEN) { // Updated line
-        client.send(message);
+        client.send(messageString); // Send the string message
       }
     }
   });
