@@ -10,6 +10,7 @@ ws.addEventListener('open', () => {
 });
 
 ws.addEventListener('message', (event) => {
+  console.log('Received data type:', typeof event.data); // Trouble shoot 'binaryType'
   const li = document.createElement('li');
   li.textContent = event.data;
   messages.appendChild(li);
